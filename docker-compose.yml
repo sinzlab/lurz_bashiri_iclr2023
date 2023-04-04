@@ -1,0 +1,42 @@
+version: "2.3"
+services:
+  notebook:
+    build:
+      dockerfile: ./neuralmetrics/Dockerfile
+      context: ../
+    image: neuralmetrics
+    volumes:
+      - .:/project
+      - ../nnsysident:/src/nnsysident
+      - /var/sinz-shared/mouse/toliaslab/static:/notebooks/data
+      - /var/sinz-shared/mouse/toliaslab/static:/project/notebooks/data
+    env_file: .env
+    runtime: nvidia
+
+  gpu_job:
+    build:
+      dockerfile: ./neuralmetrics/Dockerfile
+      context: ../
+    image: neuralmetrics
+    volumes:
+      - .:/src/neuralmetrics
+      - ../nnsysident:/src/nnsysident
+      - .:/notebooks
+      - /var/sinz-shared/mouse/toliaslab/static:/notebooks/data
+    env_file: .env
+    runtime: nvidia
+    entrypoint: /usr/local/bin/python3
+    command: run.py
+
+  notebook_local:
+    build:
+      dockerfile: ./neuralmetrics/Dockerfile
+      context: ../
+    image: neuralmetrics
+    volumes:
+      - .:/src/neuralmetrics
+      - ../nnsysident:/src/nnsysident
+      - ./notebooks:/notebooks
+      - ~/data/static:/notebooks/data
+    env_file: .env
+    runtime: nvidia
