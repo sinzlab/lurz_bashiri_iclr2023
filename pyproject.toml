@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neuralmetrics"
+version = "0.0.0"
+description = "Metrics for evaluation and comparison of neural prediction models"
+dependencies = [
+    "numpy>=1.20",
+    "torch",
+    "tqdm",
+    "pandas",
+    "h5py",
+    "scipy",
+]
+
+[[project.authors]]
+name = "Konstantin-Klemens Lurz and Mohammad Bashiri"
+email = "sinzlab.tuebingen@gmail.com"
+
+[project.urls]
+GitHub = "https://github.com/sinzlab/neuralmetrics"
+
+[tool.setuptools]
+packages = ["neuralmetrics"]
+
+[tool.coverage.run]
+branch = true
+source = ["neuralmetrics"]
+
+[tool.mypy]
+python_version = "3.8"
+files = ["neuralmetrics"]
+exclude = "old_\\w+\\.py$"
+strict = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+
+[[tool.mypy.overrides]]
+module = [
+    "h5py",
+    "scipy.signal",
+    "scipy.special",
+    "skimage.transform",
+    "torchvision",
+    "tqdm"
+]
+ignore_missing_imports = true

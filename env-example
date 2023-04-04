@@ -1,0 +1,5 @@
+# Be sure to update the content here and name the file `.env`
+
+# password to protect your Jupyter Lab environment
+
+JUPYTER_PASSWORD=simple_password

@@ -1,0 +1,10 @@
+version: "2.3"
+services:
+  notebook:
+    build:
+      dockerfile: Dockerfile
+    image: neuralmetrics
+    volumes:
+      - .:/project
+    env_file: .env
+    runtime: nvidia
