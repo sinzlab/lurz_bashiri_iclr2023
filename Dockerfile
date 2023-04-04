@@ -4,8 +4,8 @@ RUN pip install --upgrade setuptools
 RUN pip install --upgrade six
 
 
-RUN pip install git+https://github.com/sinzlab/nnsysident.git@iclr2023
-RUN pip install git+https://github.com/sinzlab/neuralpredictors.git@iclr2023
+RUN pip install git+https://github.com/sinzlab/nnsysident.git@ICLR2023
+RUN pip install git+https://github.com/sinzlab/neuralpredictors.git@ICLR2023
 
 RUN pip3 --no-cache-dir install wandb
 
