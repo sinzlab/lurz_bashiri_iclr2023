@@ -7,7 +7,7 @@ from torch import nn, optim
 
 from neuralpredictors.training.early_stopping import early_stopping
 
-from .direct import NormalInverseGamma
+from .distributions import NormalInverseGamma
 from .score_functions import compute_gs_loss_over_target_repeats
 
 

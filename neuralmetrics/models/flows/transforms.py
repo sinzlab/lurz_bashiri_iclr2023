@@ -4,10 +4,6 @@ from torch import nn
 from torch.distributions import Normal
 from torch.nn import functional as F
 
-from neuralmetrics.utils import inf_nan_check
-
-from .splines import monotonic_rational_quadratic_transform_forward, monotonic_rational_quadratic_transform_inverse
-
 
 def mask_array(x, mask=None):
     if mask is not None:
